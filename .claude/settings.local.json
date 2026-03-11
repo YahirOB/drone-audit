@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install react-router-dom firebase zustand xlsx lucide-react tailwind-merge clsx class-variance-authority date-fns sonner)",
+      "Bash(npm install -D tailwindcss @tailwindcss/vite)",
+      "Bash(npx shadcn@latest init -y)",
+      "Bash(npx shadcn@latest init --defaults)"
+    ]
+  }
+}
