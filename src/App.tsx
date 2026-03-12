@@ -14,13 +14,21 @@ import { AuditReviewPage } from '@/pages/audits/AuditReviewPage'
 import { AuditCompulsaPage } from '@/pages/audits/AuditCompulsaPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { useAuthStore } from '@/stores/authStore'
-import { subscribeToAuthState, fetchUserProfile } from '@/services/authService'
+import { subscribeToAuthState, fetchUserProfile, isDemoMode } from '@/services/authService'
+import { DEMO_USER } from '@/lib/mock-data'
 
 function AuthInit() {
   const setUser = useAuthStore((s) => s.setUser)
   const setLoading = useAuthStore((s) => s.setLoading)
 
   useEffect(() => {
+    if (isDemoMode()) {
+      const loggedIn = sessionStorage.getItem('demo_logged_in') === 'true'
+      setUser(loggedIn ? DEMO_USER : null)
+      setLoading(false)
+      return
+    }
+
     const unsubscribe = subscribeToAuthState(async (firebaseUser) => {
       if (firebaseUser) {
         try {
