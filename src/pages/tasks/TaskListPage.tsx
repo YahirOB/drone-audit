@@ -40,16 +40,14 @@ export function TaskListPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Tareas de Auditoria</h1>
-        <Button asChild>
-          <Link to="/tasks/new">
-            <Plus className="h-4 w-4 mr-2" />
-            Nueva Tarea
-          </Link>
+        <Button render={<Link to="/tasks/new" />}>
+          <Plus className="h-4 w-4 mr-2" />
+          Nueva Tarea
         </Button>
       </div>
 
       <div className="flex items-center gap-3">
-        <Select value={statusFilter} onValueChange={setStatusFilter}>
+        <Select value={statusFilter} onValueChange={(val) => setStatusFilter(val ?? 'all')}>
           <SelectTrigger className="w-48">
             <SelectValue placeholder="Filtrar por estado" />
           </SelectTrigger>
@@ -69,8 +67,8 @@ export function TaskListPage() {
           title="Sin tareas"
           description={statusFilter === 'all' ? 'Crea tu primera tarea de auditoria' : 'No hay tareas con este estado'}
           action={
-            <Button asChild size="sm">
-              <Link to="/tasks/new">Crear Tarea</Link>
+            <Button size="sm" render={<Link to="/tasks/new" />}>
+              Crear Tarea
             </Button>
           }
         />

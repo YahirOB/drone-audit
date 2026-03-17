@@ -92,8 +92,8 @@ export function AuditReviewPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Auditoria no encontrada</p>
-        <Button asChild className="mt-4">
-          <Link to="/audits">Volver a auditorias</Link>
+        <Button className="mt-4" render={<Link to="/audits" />}>
+          Volver a auditorias
         </Button>
       </div>
     )
@@ -108,10 +108,8 @@ export function AuditReviewPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" asChild>
-          <Link to="/audits">
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
+        <Button variant="ghost" size="icon" render={<Link to="/audits" />}>
+          <ArrowLeft className="h-4 w-4" />
         </Button>
         <div className="flex-1">
           <h1 className="text-2xl font-bold">Revision de Auditoria</h1>
@@ -131,11 +129,9 @@ export function AuditReviewPage() {
           <Download className="h-4 w-4 mr-2" />
           Descargar Excel
         </Button>
-        <Button asChild variant="outline">
-          <Link to={`/audits/${auditId}/review`}>
-            <Eye className="h-4 w-4 mr-2" />
-            Revisar
-          </Link>
+        <Button variant="outline" render={<Link to={`/audits/${auditId}/review`} />}>
+          <Eye className="h-4 w-4 mr-2" />
+          Revisar
         </Button>
         <Button onClick={handleShare} disabled={!fullData} variant="outline">
           <Share2 className="h-4 w-4 mr-2" />
@@ -149,10 +145,8 @@ export function AuditReviewPage() {
           <CheckCircle className="h-4 w-4 mr-2" />
           {result.status === 'validated' ? 'Validada' : 'Validar'}
         </Button>
-        <Button asChild variant="outline">
-          <Link to={`/audits/${auditId}/compulsa`}>
-            Compulsa
-          </Link>
+        <Button variant="outline" render={<Link to={`/audits/${auditId}/compulsa`} />}>
+          Compulsa
         </Button>
       </div>
 

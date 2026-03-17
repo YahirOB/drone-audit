@@ -53,8 +53,8 @@ export function TaskDetailPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Tarea no encontrada</p>
-        <Button asChild className="mt-4">
-          <Link to="/tasks">Volver a tareas</Link>
+        <Button className="mt-4" render={<Link to="/tasks" />}>
+          Volver a tareas
         </Button>
       </div>
     )
@@ -65,10 +65,8 @@ export function TaskDetailPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" asChild>
-          <Link to="/tasks">
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
+        <Button variant="ghost" size="icon" render={<Link to="/tasks" />}>
+          <ArrowLeft className="h-4 w-4" />
         </Button>
         <div className="flex-1">
           <h1 className="text-2xl font-bold">{task.title}</h1>

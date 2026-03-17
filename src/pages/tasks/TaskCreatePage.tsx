@@ -65,10 +65,8 @@ export function TaskCreatePage() {
   return (
     <div className="max-w-2xl mx-auto space-y-4">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" asChild>
-          <Link to="/tasks">
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
+        <Button variant="ghost" size="icon" render={<Link to="/tasks" />}>
+          <ArrowLeft className="h-4 w-4" />
         </Button>
         <h1 className="text-2xl font-bold">Nueva Tarea de Auditoria</h1>
       </div>
@@ -154,7 +152,7 @@ export function TaskCreatePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Tipo de Almacen</Label>
-                <Select value={storageType} onValueChange={(v) => setStorageType(v as StorageType)}>
+                <Select value={storageType} onValueChange={(v) => v && setStorageType(v as StorageType)}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>

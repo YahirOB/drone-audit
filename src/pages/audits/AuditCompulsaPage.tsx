@@ -97,8 +97,8 @@ export function AuditCompulsaPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Auditoria no encontrada</p>
-        <Button asChild className="mt-4">
-          <Link to="/audits">Volver</Link>
+        <Button className="mt-4" render={<Link to="/audits" />}>
+          Volver
         </Button>
       </div>
     )
@@ -113,10 +113,8 @@ export function AuditCompulsaPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" asChild>
-          <Link to={`/audits/${auditId}/review`}>
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
+        <Button variant="ghost" size="icon" render={<Link to={`/audits/${auditId}/review`} />}>
+          <ArrowLeft className="h-4 w-4" />
         </Button>
         <div>
           <h1 className="text-2xl font-bold">Compulsa</h1>

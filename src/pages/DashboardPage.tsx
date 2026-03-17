@@ -43,11 +43,9 @@ export function DashboardPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <Button asChild>
-          <Link to="/tasks/new">
-            <Plus className="h-4 w-4 mr-2" />
-            Nueva Tarea
-          </Link>
+        <Button render={<Link to="/tasks/new" />}>
+          <Plus className="h-4 w-4 mr-2" />
+          Nueva Tarea
         </Button>
       </div>
 
@@ -102,8 +100,8 @@ export function DashboardPage() {
                 title="Sin tareas"
                 description="Crea tu primera tarea de auditoria"
                 action={
-                  <Button asChild size="sm">
-                    <Link to="/tasks/new">Crear Tarea</Link>
+                  <Button size="sm" render={<Link to="/tasks/new" />}>
+                    Crear Tarea
                   </Button>
                 }
               />
