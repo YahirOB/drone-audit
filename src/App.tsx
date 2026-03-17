@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { RootLayout } from '@/components/layout/RootLayout'
@@ -55,7 +55,7 @@ function AuthInit() {
 export default function App() {
   return (
     <TooltipProvider>
-      <BrowserRouter>
+      <HashRouter>
         <AuthInit />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
@@ -73,7 +73,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Toaster position="top-right" />
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   )
 }
