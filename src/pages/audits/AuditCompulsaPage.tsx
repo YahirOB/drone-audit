@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { StatusBadge } from '@/components/shared/StatusBadge'
@@ -97,9 +97,9 @@ export function AuditCompulsaPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Auditoria no encontrada</p>
-        <Button className="mt-4" render={<Link to="/audits" />}>
+        <Link to="/audits" className={buttonVariants({ className: 'mt-4' })}>
           Volver
-        </Button>
+        </Link>
       </div>
     )
   }
@@ -113,9 +113,9 @@ export function AuditCompulsaPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" render={<Link to={`/audits/${auditId}/review`} />}>
+        <Link to={`/audits/${auditId}/review`} className={buttonVariants({ variant: 'ghost', size: 'icon' })}>
           <ArrowLeft className="h-4 w-4" />
-        </Button>
+        </Link>
         <div>
           <h1 className="text-2xl font-bold">Compulsa</h1>
           <p className="text-sm text-muted-foreground">

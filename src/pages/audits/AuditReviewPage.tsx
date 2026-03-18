@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { StatusBadge } from '@/components/shared/StatusBadge'
@@ -92,9 +92,9 @@ export function AuditReviewPage() {
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground">Auditoria no encontrada</p>
-        <Button className="mt-4" render={<Link to="/audits" />}>
+        <Link to="/audits" className={buttonVariants({ className: 'mt-4' })}>
           Volver a auditorias
-        </Button>
+        </Link>
       </div>
     )
   }
@@ -108,9 +108,9 @@ export function AuditReviewPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" render={<Link to="/audits" />}>
+        <Link to="/audits" className={buttonVariants({ variant: 'ghost', size: 'icon' })}>
           <ArrowLeft className="h-4 w-4" />
-        </Button>
+        </Link>
         <div className="flex-1">
           <h1 className="text-2xl font-bold">Revision de Auditoria</h1>
           <p className="text-sm text-muted-foreground">
@@ -129,10 +129,10 @@ export function AuditReviewPage() {
           <Download className="h-4 w-4 mr-2" />
           Descargar Excel
         </Button>
-        <Button variant="outline" render={<Link to={`/audits/${auditId}/review`} />}>
+        <Link to={`/audits/${auditId}/review`} className={buttonVariants({ variant: 'outline' })}>
           <Eye className="h-4 w-4 mr-2" />
           Revisar
-        </Button>
+        </Link>
         <Button onClick={handleShare} disabled={!fullData} variant="outline">
           <Share2 className="h-4 w-4 mr-2" />
           Compartir JSON
@@ -145,9 +145,9 @@ export function AuditReviewPage() {
           <CheckCircle className="h-4 w-4 mr-2" />
           {result.status === 'validated' ? 'Validada' : 'Validar'}
         </Button>
-        <Button variant="outline" render={<Link to={`/audits/${auditId}/compulsa`} />}>
+        <Link to={`/audits/${auditId}/compulsa`} className={buttonVariants({ variant: 'outline' })}>
           Compulsa
-        </Button>
+        </Link>
       </div>
 
       <Tabs defaultValue="summary">

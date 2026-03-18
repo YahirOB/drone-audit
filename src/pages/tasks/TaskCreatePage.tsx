@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -65,9 +65,9 @@ export function TaskCreatePage() {
   return (
     <div className="max-w-2xl mx-auto space-y-4">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" render={<Link to="/tasks" />}>
+        <Link to="/tasks" className={buttonVariants({ variant: 'ghost', size: 'icon' })}>
           <ArrowLeft className="h-4 w-4" />
-        </Button>
+        </Link>
         <h1 className="text-2xl font-bold">Nueva Tarea de Auditoria</h1>
       </div>
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { StatusBadge } from '@/components/shared/StatusBadge'
 import { LoadingSpinner } from '@/components/shared/LoadingSpinner'
 import { EmptyState } from '@/components/shared/EmptyState'
@@ -43,10 +43,10 @@ export function DashboardPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <Button render={<Link to="/tasks/new" />}>
+        <Link to="/tasks/new" className={buttonVariants()}>
           <Plus className="h-4 w-4 mr-2" />
           Nueva Tarea
-        </Button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -100,9 +100,9 @@ export function DashboardPage() {
                 title="Sin tareas"
                 description="Crea tu primera tarea de auditoria"
                 action={
-                  <Button size="sm" render={<Link to="/tasks/new" />}>
+                  <Link to="/tasks/new" className={buttonVariants({ size: 'sm' })}>
                     Crear Tarea
-                  </Button>
+                  </Link>
                 }
               />
             ) : (

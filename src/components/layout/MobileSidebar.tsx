@@ -6,7 +6,6 @@ import {
   Plus,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { SheetClose } from '@/components/ui/sheet'
 
 const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -24,26 +23,22 @@ export function MobileSidebar() {
       </div>
       <nav className="flex-1 p-4 space-y-1">
         {navItems.map((item) => (
-          <SheetClose
+          <NavLink
             key={item.to}
-            render={
-              <NavLink
-                to={item.to}
-                end={item.to === '/'}
-                className={({ isActive }) =>
-                  cn(
-                    'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
-                    isActive
-                      ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                      : 'text-muted-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'
-                  )
-                }
-              />
+            to={item.to}
+            end={item.to === '/'}
+            className={({ isActive }) =>
+              cn(
+                'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                isActive
+                  ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                  : 'text-muted-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'
+              )
             }
           >
             <item.icon className="h-4 w-4" />
             {item.label}
-          </SheetClose>
+          </NavLink>
         ))}
       </nav>
     </div>
