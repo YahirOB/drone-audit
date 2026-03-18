@@ -6,6 +6,12 @@
       "runtimeExecutable": "node.exe",
       "runtimeArgs": ["node_modules/vite/bin/vite.js", "--host"],
       "port": 5173
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "node.exe",
+      "runtimeArgs": ["node_modules/vite/bin/vite.js", "preview", "--host"],
+      "port": 4173
     }
   ]
 }

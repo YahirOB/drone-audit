@@ -1,5 +1,5 @@
 import { LogOut, Menu } from 'lucide-react'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { ThemeToggle } from './ThemeToggle'
 import { useAuthStore } from '@/stores/authStore'
 import { logout } from '@/services/authService'
@@ -17,8 +17,10 @@ export function Header() {
     <header className="flex items-center justify-between h-14 px-4 border-b border-border bg-background">
       <div className="flex items-center gap-2">
         <Sheet>
-          <SheetTrigger className={buttonVariants({ variant: 'ghost', size: 'icon', className: 'md:hidden' })}>
-            <Menu className="h-5 w-5" />
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-64 p-0">
             <SheetTitle className="sr-only">Menu de navegacion</SheetTitle>

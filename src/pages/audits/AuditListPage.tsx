@@ -40,7 +40,7 @@ export function AuditListPage() {
       <h1 className="text-2xl font-bold">Auditorias</h1>
 
       <div className="flex items-center gap-3">
-        <Select value={statusFilter} onValueChange={(val) => setStatusFilter(val ?? 'all')}>
+        <Select value={statusFilter} onValueChange={setStatusFilter}>
           <SelectTrigger className="w-56">
             <SelectValue placeholder="Filtrar por estado" />
           </SelectTrigger>

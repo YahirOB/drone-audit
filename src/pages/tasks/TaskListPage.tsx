@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { buttonVariants } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { StatusBadge } from '@/components/shared/StatusBadge'
 import { LoadingSpinner } from '@/components/shared/LoadingSpinner'
@@ -40,14 +40,16 @@ export function TaskListPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Tareas de Auditoria</h1>
-        <Link to="/tasks/new" className={buttonVariants()}>
-          <Plus className="h-4 w-4 mr-2" />
-          Nueva Tarea
-        </Link>
+        <Button asChild>
+          <Link to="/tasks/new">
+            <Plus className="h-4 w-4 mr-2" />
+            Nueva Tarea
+          </Link>
+        </Button>
       </div>
 
       <div className="flex items-center gap-3">
-        <Select value={statusFilter} onValueChange={(val) => setStatusFilter(val ?? 'all')}>
+        <Select value={statusFilter} onValueChange={setStatusFilter}>
           <SelectTrigger className="w-48">
             <SelectValue placeholder="Filtrar por estado" />
           </SelectTrigger>
@@ -67,9 +69,9 @@ export function TaskListPage() {
           title="Sin tareas"
           description={statusFilter === 'all' ? 'Crea tu primera tarea de auditoria' : 'No hay tareas con este estado'}
           action={
-            <Link to="/tasks/new" className={buttonVariants({ size: 'sm' })}>
-              Crear Tarea
-            </Link>
+            <Button asChild size="sm">
+              <Link to="/tasks/new">Crear Tarea</Link>
+            </Button>
           }
         />
       ) : (
